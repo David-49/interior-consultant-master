@@ -12,10 +12,10 @@ $fontSiteName: "Crimson Pro";
 html {
   font-size: 62.5%;
   color: white;
+  background-color: $background;
 }
 
 .container {
-  background-color: $background;
   width: 100%;
 }
 
@@ -53,6 +53,8 @@ html {
   margin: auto;
   margin-top: 80px;
   width: 70%;
+  padding: 40px;
+  margin-bottom: 100px;
 }
 
 .title {
@@ -65,7 +67,7 @@ html {
   font-size: 2.4rem;
   font-weight: 300;
   line-height: 2.9rem;
-  width: 50%;
+  width: 80%;
   margin: 40px 0 50px 0;
 }
 
@@ -106,6 +108,66 @@ html {
   bottom: -2px;
 }
 
+.bloc-droit {
+  position: relative;
+  width: 140%;
+}
+
 .img-design {
-  width: 600px;
+  width: 100%;
+  min-width: 390px;
+}
+
+.card-designer {
+  background-color: #181719;
+  position: absolute;
+  bottom: -14%;
+  right: 10%;
+  padding: 30px;
+}
+
+.info-designer {
+  display: flex;
+
+  .img-profil {
+    border-radius: 100%;
+    width: 50px;
+  }
+
+  .bloc-name {
+    margin-left: 15px;
+    .name {
+      font-family: $fontText;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .job-name {
+      font-family: $fontText;
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: #828282;
+    }
+  }
+}
+
+.description {
+  font-family: $fontTitle;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+  width: 70%;
+  margin-top: 20px;
+}
+
+.attribution {
+  font-family: $fontText;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  color: #a9a9a9;
+  a {
+    color: #a9a9a9;
+    text-decoration: none;
+  }
 }

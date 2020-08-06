@@ -5,10 +5,10 @@
 
 html {
   font-size: 62.5%;
-  color: white; }
+  color: white;
+  background-color: #333333; }
 
 .container {
-  background-color: #333333;
   width: 100%; }
 
 .header {
@@ -40,7 +40,9 @@ html {
   justify-content: center;
   margin: auto;
   margin-top: 80px;
-  width: 70%; }
+  width: 70%;
+  padding: 40px;
+  margin-bottom: 100px; }
 
 .title {
   font-size: 4.8rem;
@@ -51,7 +53,7 @@ html {
   font-size: 2.4rem;
   font-weight: 300;
   line-height: 2.9rem;
-  width: 50%;
+  width: 80%;
   margin: 40px 0 50px 0; }
 
 .bloc-readMore {
@@ -88,6 +90,54 @@ html {
   right: 0;
   bottom: -2px; }
 
+.bloc-droit {
+  position: relative;
+  width: 140%; }
+
 .img-design {
-  width: 600px; }
+  width: 100%;
+  min-width: 390px; }
+
+.card-designer {
+  background-color: #181719;
+  position: absolute;
+  bottom: -14%;
+  right: 10%;
+  padding: 30px; }
+
+.info-designer {
+  display: flex; }
+  .info-designer .img-profil {
+    border-radius: 100%;
+    width: 50px; }
+  .info-designer .bloc-name {
+    margin-left: 15px; }
+    .info-designer .bloc-name .name {
+      font-family: Montserrat;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 10px; }
+    .info-designer .bloc-name .job-name {
+      font-family: Montserrat;
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: #828282; }
+
+.description {
+  font-family: Lora;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+  width: 70%;
+  margin-top: 20px; }
+
+.attribution {
+  font-family: Montserrat;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  color: #a9a9a9; }
+  .attribution a {
+    color: #a9a9a9;
+    text-decoration: none; }
 /*# sourceMappingURL=style.css.map */
