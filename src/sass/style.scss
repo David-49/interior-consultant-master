@@ -1,4 +1,4 @@
-@import "src/sass/breakpoints.scss";
+@import "./src/sass/breakpoints.scss";
 
 $background: #333333;
 $fontText: Montserrat;
@@ -27,6 +27,41 @@ html {
   padding: 42px 77px;
 }
 
+.burger-menu {
+  width: 50px;
+  height: 50px;
+
+  span {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+  }
+}
+
+.mobile {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #181719;
+  display: flex;
+  z-index: 9999;
+  .menu {
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+    height: 30%;
+    .items {
+      margin-left: 0;
+    }
+  }
+}
+.active {
+  display: none;
+}
+
 .site-name {
   font-size: 1.4rem;
   font-family: $fontSiteName;
@@ -34,6 +69,8 @@ html {
   padding: 8px;
   border: solid white;
   display: inline-block;
+  white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .menu {
@@ -52,11 +89,17 @@ html {
 .content {
   display: flex;
   justify-content: center;
-  margin: auto;
   margin-top: 80px;
-  width: 70%;
   padding: 40px;
   margin-bottom: 100px;
+}
+
+.bloc-gauche {
+  width: 40%;
+}
+
+.bloc-droit {
+  width: 50%;
 }
 
 .title {
@@ -112,22 +155,20 @@ html {
 
 .bloc-droit {
   position: relative;
-  width: 140%;
   align-self: flex-start;
 }
 
 .img-design {
   width: 100%;
-  min-width: 390px;
+  /* min-width: 390px; */
 }
 
 .card-designer {
   background-color: #181719;
   position: absolute;
   bottom: -14%;
-  right: 10%;
+  right: 4%;
   padding: 30px;
-  width: 60%;
 }
 
 .info-designer {
@@ -165,13 +206,81 @@ html {
 
 .attribution {
   font-family: $fontText;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 1.4rem;
   color: #a9a9a9;
+  text-align: center;
   a {
     color: #a9a9a9;
     text-decoration: none;
+  }
+}
+
+/* $breakpoints: (
+  "phone": 360px,
+  "tablet": 768px,
+  "desktop": 1366px,
+  "LGdesktop": 1920px,
+) !default; */
+
+@include media("<=375px") {
+  .header {
+    padding: 12px 19px;
+  }
+
+  .desktop {
+    display: none;
+  }
+  .content {
+    flex-direction: column;
+    padding: 8px;
+    margin: 20px 0 10px 0;
+  }
+
+  .bloc-gauche {
+    margin-bottom: 30px;
+  }
+
+  .bloc-gauche,
+  .bloc-droit {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 3.6rem;
+  }
+  .text {
+    margin: 30px 0 40px 0;
+  }
+
+  .text,
+  .more-info {
+    font-size: 1.4em;
+  }
+
+  .card-designer {
+    background: #181719;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    bottom: -30%;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .job-name {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 1.8rem;
+  }
+
+  .attribution {
+    border-top: 1px solid #a9a9a9;
+    width: 80%;
+    margin: auto;
+    margin-top: 30%;
+    padding: 10px;
   }
 }
