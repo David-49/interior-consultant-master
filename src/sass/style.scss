@@ -17,6 +17,10 @@ html {
   background-color: $background;
 }
 
+body {
+  position: relative;
+}
+
 .container {
   width: 100%;
 }
@@ -28,37 +32,10 @@ html {
 }
 
 .burger-menu {
-  width: 50px;
-  height: 50px;
-
-  span {
-    width: 100%;
-    height: 4px;
-    background-color: white;
-  }
+  display: none;
 }
 
 .mobile {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: #181719;
-  display: flex;
-  z-index: 9999;
-  .menu {
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-    margin: auto;
-    height: 30%;
-    .items {
-      margin-left: 0;
-    }
-  }
-}
-.active {
   display: none;
 }
 
@@ -83,7 +60,7 @@ html {
 }
 
 .items {
-  margin-left: 86px;
+  margin-left: 80px;
 }
 
 .content {
@@ -168,7 +145,7 @@ html {
   position: absolute;
   bottom: -14%;
   right: 4%;
-  padding: 30px;
+  padding: 3%;
 }
 
 .info-designer {
@@ -222,9 +199,9 @@ html {
   "LGdesktop": 1920px,
 ) !default; */
 
-@include media("<=375px") {
+@include media("<=700px") {
   .header {
-    padding: 12px 19px;
+    padding: 32px 19px;
   }
 
   .desktop {
@@ -280,7 +257,116 @@ html {
     border-top: 1px solid #a9a9a9;
     width: 80%;
     margin: auto;
-    margin-top: 30%;
+    margin-top: 30% !important;
     padding: 10px;
+  }
+
+  .burger-menu {
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    cursor: pointer;
+    z-index: 9999;
+
+    span {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      display: block;
+      position: absolute;
+      z-index: 4500;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-color 0.5s ease-in-out;
+    }
+    span::before {
+      transform: translateY(-10px);
+    }
+    span::after {
+      transform: translateY(10px);
+    }
+    span::before,
+    span::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: #ffffff;
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  .burger-menu.active span {
+    background-color: transparent;
+    &::before {
+      transform: translateY(0px) rotateZ(45deg);
+      background: #ffffff;
+    }
+    &::after {
+      transform: translateY(0px) rotateZ(-45deg);
+      background: #ffffff;
+    }
+  }
+
+  .mobile-active {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #181719;
+    display: flex;
+    z-index: 9998;
+    .menu {
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+      margin: auto;
+      height: 30%;
+      .items {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@include media(">=480px", "<700px") {
+  .card-designer {
+    bottom: -10%;
+  }
+}
+
+@include media("<=1080px") {
+  .header {
+    padding: 32px 19px;
+  }
+
+  .content {
+    padding: 2px;
+    margin: 80px 0 50px 0;
+  }
+
+  .items {
+    margin-left: 40px;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .job-name {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 1.8rem;
+  }
+
+  .attribution {
+    margin: auto;
+    margin-top: 10%;
   }
 }
