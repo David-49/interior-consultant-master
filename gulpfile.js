@@ -6,7 +6,6 @@ const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const rename = require("gulp-rename");
 const newer = require("gulp-newer");
-//const sourcemaps = require("gulp-sourcemaps");
 
 const imgDest = "dist/images";
 
@@ -16,6 +15,10 @@ function processHTML() {
 
 function processIMG() {
   return src("src/images/*.png").pipe(newer(imgDest)).pipe(dest("dist/images"));
+}
+
+function processJS() {
+  return src("src/JS/*.js").pipe(dest("dist/JS"));
 }
 
 function processSass() {
@@ -39,12 +42,12 @@ function clean() {
   return del(["dist"]);
 }
 
-/*exports.default = series(
+exports.default = series(
   clean,
   processSass,
-  parallel(processHTML, processIMG, processMinify)
-);*/
+  parallel(processHTML, processJS, processIMG, processMinify)
+);
 
-exports.default = function () {
+/* exports.default = function () {
   watch("src/sass/*.scss", processSass);
-};
+}; */
